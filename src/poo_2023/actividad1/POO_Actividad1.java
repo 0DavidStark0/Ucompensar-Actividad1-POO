@@ -10,24 +10,29 @@ public class POO_Actividad1 {
     
     public static void main(String[] args) {
         double sumaNotas = 0, promedio = 0;
-        int cantEstudiantes = Integer.parseInt(JOptionPane.showInputDialog("Cuantos estudiantes desea registrar"));
-        setNotas(cantEstudiantes);
         
-        for(Object nota: notas){
-            sumaNotas += (double)nota;
-        }
-        promedio = sumaNotas / notas.size();
-        
-        System.out.println("El promedio del curso es: " + String.format("%.2f", promedio)+"\n"
-                                        + "Los estudiante abajo del promedio son:");
-        
-        for(int i = 0; i < nombres.size(); i++){
-            if ((double)notas.get(i) < promedio){
-                System.out.println("Nombre: "+ nombres.get(i)
-                                    + " Nota: "+notas.get(i));
+        try {
+            int cantEstudiantes = Integer.parseInt(JOptionPane.showInputDialog("Cuantos estudiantes desea registrar"));
+            setNotas(cantEstudiantes);
+
+            for(Object nota: notas){
+                sumaNotas += (double)nota;
             }
+            promedio = sumaNotas / notas.size();
+
+            System.out.println("El promedio del curso es: " + String.format("%.2f", promedio)+"\n"
+                                            + "Los estudiante abajo del promedio son:");
+
+            for(int i = 0; i < nombres.size(); i++){
+                if ((double)notas.get(i) < promedio){
+                    System.out.println("Nombre: "+ nombres.get(i)
+                                        + " Nota: "+notas.get(i));
+                }
+            }
+            System.out.println(notas + " -> " + nombres);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-        System.out.println(notas + " -> " + nombres);
     }
     
     public static String setNombre (){
